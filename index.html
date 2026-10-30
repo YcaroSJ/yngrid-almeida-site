@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Yngrid Almeida | Arquiteta paisagista em Goiânia</title>
+<meta name="description" content="Projeto e plantio de jardins, oliveiras e paisagismo interno em Goiânia. Peça sua avaliação pelo WhatsApp.">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+:root{--forest:#14211a;--moss:#34513a;--leaf:#b9d15a;--lichen:#e6ebd5;--stone:#f4f5ee;--ink:#17231a;--mut:#5d6b5e}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+::-webkit-scrollbar{width:16px}::-webkit-scrollbar-track{background:var(--forest)}::-webkit-scrollbar-thumb{background:var(--leaf);border-radius:16px;border:4px solid var(--forest)}::-webkit-scrollbar-thumb:hover{background:#d2e67f}
+#bar{position:fixed;top:0;left:0;height:4px;width:100%;background:linear-gradient(90deg,var(--leaf),var(--moss));transform:scaleX(0);transform-origin:0 50%;z-index:70}
+body{font-family:Supreme,sans-serif;background:var(--stone);color:var(--ink);line-height:1.6;overflow-x:hidden}
+body.lock{overflow:hidden}
+h1,h2,h3{font-family:Gambetta,serif;font-weight:500;line-height:1.08;letter-spacing:-.01em}
+h1{font-size:clamp(34px,5vw,64px)}h2{font-size:clamp(26px,3.4vw,44px)}h3{font-size:clamp(20px,2vw,26px)}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{width:min(1180px,100% - 40px);margin:0 auto}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 28px;border-radius:60px;background:var(--leaf);color:var(--forest);font-weight:700;font-size:15px;transition:transform .3s,box-shadow .3s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 12px 28px -10px rgba(52,81,58,.6)}
+.btn.dk{background:var(--forest);color:var(--stone)}
+.ghost{font-weight:500;border-bottom:1.5px solid currentColor;padding-bottom:2px}
+/* intro */
+#intro{position:fixed;inset:0;z-index:99;background:var(--forest);display:grid;place-items:center;transition:clip-path 1s cubic-bezier(.7,0,.2,1);clip-path:circle(150% at 50% 50%)}
+#intro.out{clip-path:circle(0% at 50% 50%)}
+#intro svg{width:84px;height:84px}
+#intro path{fill:none;stroke:var(--leaf);stroke-width:2.4;stroke-linecap:round;stroke-dasharray:200;stroke-dashoffset:200;animation:dr 1.3s .1s forwards}
+#intro p{position:absolute;bottom:14vh;color:var(--lichen);font-family:Gambetta,serif;font-size:19px;opacity:0;animation:fi .8s .7s forwards}
+@keyframes dr{to{stroke-dashoffset:0}}@keyframes fi{to{opacity:1}}
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(18px,4vw,48px);transition:color .3s}
+nav::before{content:"";position:absolute;inset:0;background:rgba(244,245,238,.86);backdrop-filter:blur(12px);opacity:0;transition:opacity .3s;z-index:-1}
+nav.s::before{opacity:1}
+.logo{font-family:Gambetta,serif;font-size:21px;font-weight:600;display:flex;align-items:center;gap:8px}
+.logo svg{width:24px;height:24px}.logo path{fill:none;stroke:var(--moss);stroke-width:2.2;stroke-linecap:round}
+nav ul{display:flex;gap:30px;list-style:none;font-size:15px;font-weight:500}
+nav ul a{position:relative}nav ul a::after{content:"";position:absolute;left:0;bottom:-3px;height:2px;width:0;background:var(--moss);transition:width .3s}nav ul a:hover::after{width:100%}
+.ncta{padding:10px 20px;font-size:14px}
+#burger{display:none;width:44px;height:44px;border:0;background:none;position:relative}
+#burger i{position:absolute;left:11px;right:11px;height:2px;background:var(--ink);transition:.3s}#burger i:nth-child(1){top:17px}#burger i:nth-child(2){top:25px}
+#burger.o i:nth-child(1){top:21px;transform:rotate(45deg)}#burger.o i:nth-child(2){top:21px;transform:rotate(-45deg)}
+/* hero */
+.hero{position:relative;min-height:100svh;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;background:var(--lichen);overflow:hidden}
+#leaves{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hcopy{position:relative;padding:110px 20px 70px clamp(20px,6vw,100px);max-width:660px}
+.hcopy h1{margin-bottom:22px}
+.hcopy p{font-size:clamp(16px,1.3vw,18px);color:var(--mut);margin-bottom:30px;max-width:48ch}
+.hbtn{display:flex;gap:26px;align-items:center;flex-wrap:wrap}
+.hph{position:relative;height:100svh;min-height:560px}
+.hph .ph{position:absolute;inset:0 0 0 6%;border-radius:46% 0 0 46%/38% 0 0 38%;overflow:hidden;box-shadow:-30px 30px 80px -40px rgba(20,33,26,.5)}
+.hph img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;transform:scale(1.12);transition:transform 1.8s cubic-bezier(.2,.7,.2,1)}
+.hph.in img{transform:scale(1)}
+.tag{position:absolute;left:0;bottom:12%;background:var(--forest);color:var(--lichen);padding:16px 22px;border-radius:24px;font-size:14px;line-height:1.35;max-width:210px;animation:fl 6s ease-in-out infinite}
+.tag b{display:block;font-family:Gambetta,serif;font-size:22px;color:var(--leaf);font-weight:500}
+@keyframes fl{50%{transform:translateY(-10px)}}
+/* manifesto */
+.mani{padding:clamp(80px,12vw,160px) 0;background:var(--stone)}
+#mf{font-family:Gambetta,serif;font-size:clamp(24px,3.2vw,44px);line-height:1.22;max-width:22em}
+#mf .w{opacity:.2;transition:opacity .4s}#mf .w.on{opacity:1}
+/* ambientes */
+.amb{background:var(--forest);color:var(--lichen);padding:clamp(70px,9vw,120px) 0;position:relative}
+.amb .top{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:44px}
+.amb h2{max-width:14em}
+.tabs{display:flex;gap:10px;flex-wrap:wrap}
+.tabs button{border:1.5px solid rgba(230,235,213,.3);background:none;color:var(--lichen);padding:11px 20px;border-radius:40px;font:500 14px Supreme,sans-serif;cursor:pointer;transition:.3s}
+.tabs button.on{background:var(--leaf);color:var(--forest);border-color:var(--leaf)}
+.stage{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(24px,4vw,64px);align-items:center}
+.view{position:relative;aspect-ratio:4/3;border-radius:36% 64% 40% 60%/50% 40% 60% 50%;overflow:hidden;transition:border-radius 1s}
+.view img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;clip-path:circle(0% at 50% 50%);transition:clip-path 1s cubic-bezier(.7,0,.2,1)}
+.view img.on{clip-path:circle(80% at 50% 50%);z-index:2}.view img.prev{clip-path:circle(80% at 50% 50%);z-index:1}
+.info h3{margin-bottom:12px;color:var(--leaf)}.info p{opacity:.85;margin-bottom:24px;max-width:44ch}
+/* serviços */
+.serv{padding:clamp(70px,9vw,120px) 0;background:var(--stone)}
+.serv h2{margin-bottom:46px;max-width:15em}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.sv{padding:30px 24px 28px;border-radius:30px 30px 30px 6px;background:#fff;border:1px solid rgba(52,81,58,.14);display:flex;flex-direction:column;gap:12px;transition:transform .4s,border-color .4s}
+.sv:hover{transform:translateY(-6px);border-color:var(--moss)}
+.sv svg{width:62px;height:62px;margin-bottom:6px}
+.sv svg *{fill:none;stroke:var(--moss);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:var(--l,260);stroke-dashoffset:var(--l,260);transition:stroke-dashoffset 1.6s cubic-bezier(.4,0,.2,1)}
+.sv.in svg *{stroke-dashoffset:0}.sv:hover svg *{stroke:var(--leaf);stroke-width:2.2}
+.sv p{font-size:15px;color:var(--mut)}.sv a{margin-top:auto;font-weight:700;font-size:14px;color:var(--moss)}
+/* processo - trepadeira */
+.proc{background:var(--lichen);padding:clamp(70px,9vw,120px) 0}
+.proc h2{margin-bottom:60px}
+.vine{position:relative;display:grid;grid-template-columns:90px 1fr;gap:20px}
+.vine svg{position:absolute;left:0;top:0;width:90px;height:100%}
+.vine .stem{fill:none;stroke:var(--moss);stroke-width:3;stroke-linecap:round}
+.vine .ghost2{fill:none;stroke:rgba(52,81,58,.18);stroke-width:3}
+.steps{grid-column:2;display:grid;gap:clamp(48px,7vw,90px)}
+.st{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;opacity:.3;transform:translateX(30px);transition:.8s}
+.st.on{opacity:1;transform:none}
+.st:nth-child(even) .stp{order:2}
+.stp{aspect-ratio:5/4;border-radius:50% 50% 50% 8%/60% 60% 40% 40%;overflow:hidden}.stp img{width:100%;height:100%;object-fit:cover}
+.st:nth-child(even) .stp{border-radius:50% 50% 8% 50%/60% 60% 40% 40%}
+.st h3{margin-bottom:8px}.st p{color:var(--mut);max-width:42ch}
+/* galeria parallax */
+.gal{padding:clamp(70px,9vw,110px) 0;background:var(--stone);overflow:hidden}
+.gal h2{margin-bottom:40px}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:start}
+.col{display:grid;gap:16px;will-change:transform}
+.col img{width:100%;border-radius:28px;height:auto}
+/* prova + faq */
+.prova{background:var(--moss);color:var(--lichen);padding:70px 0}
+.prova .wrap{display:flex;gap:40px;justify-content:space-between;flex-wrap:wrap;align-items:center}
+.prova h2{max-width:14em}
+.prova p{max-width:40ch;opacity:.85}
+.faq{padding:clamp(70px,9vw,110px) 0;background:var(--stone)}
+.faq .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px}
+.q{border-bottom:1px solid rgba(23,35,26,.16)}
+.q button{width:100%;text-align:left;background:none;border:0;padding:20px 0;font:500 17px Supreme,sans-serif;color:var(--ink);display:flex;justify-content:space-between;gap:20px;cursor:pointer}
+.q button::after{content:"+";font-size:24px;line-height:1;transition:transform .3s}
+.q.open button::after{transform:rotate(45deg)}
+.q div{max-height:0;overflow:hidden;transition:max-height .5s;color:var(--mut)}.q.open div{max-height:220px}.q div p{padding:0 0 20px;max-width:56ch}
+/* cta */
+.cta{position:relative;background:var(--forest);color:var(--lichen);padding:clamp(80px,11vw,150px) 0;text-align:center;overflow:hidden}
+.cta h2{font-size:clamp(28px,4vw,52px);max-width:15em;margin:0 auto 22px}
+.cta p{opacity:.8;max-width:46ch;margin:0 auto 34px}
+.cta .orb{position:absolute;border-radius:50%;background:radial-gradient(circle at 30% 30%,var(--leaf),transparent 65%);opacity:.18;filter:blur(6px)}
+.where{padding:clamp(70px,9vw,120px) 0;background:var(--stone)}
+.where .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(24px,4vw,60px);align-items:stretch}
+.where h2{color:var(--forest);margin-bottom:22px;max-width:11em}
+.where dl{display:grid;gap:18px;margin-bottom:28px}.where dt{font:600 15px Gambetta,sans-serif;color:#4d6a1f}.where dd{color:var(--ink)}.where dd small{display:block;color:var(--mut);font-size:14px}
+.where .bt{display:flex;flex-wrap:wrap;gap:12px}
+.map{min-height:360px;border-radius:44px 44px 6px 44px;overflow:hidden;background:var(--lichen);box-shadow:0 30px 60px -34px rgba(20,33,26,.55)}.map iframe{width:100%;height:100%;min-height:360px;border:0;display:block}
+.btn .wi,.fab .wi{width:20px;height:20px;fill:currentColor;flex:none}
+.fab{position:fixed;right:22px;bottom:22px;z-index:60;width:62px;height:62px;border-radius:50%;background:#25d366;color:#fff;display:grid;place-items:center;box-shadow:0 14px 30px -10px rgba(0,0,0,.5);transition:transform .3s}.fab:hover{transform:scale(1.08) rotate(-6deg)}
+.fab .wi{width:32px;height:32px}.fab::before{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid #25d366;animation:pg 2.4s infinite}
+@keyframes pg{from{transform:scale(1);opacity:.8}to{transform:scale(1.6);opacity:0}}
+footer{background:var(--forest);color:rgba(255,255,255,.72);padding:clamp(48px,6vw,80px) 0 26px;font-size:14px;border-top:1px solid rgba(255,255,255,.12)}
+footer .ft{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:36px;margin-bottom:40px}
+footer .logo{color:#fff;margin-bottom:14px}footer h4{font:600 15px Gambetta,sans-serif;color:#fff;margin-bottom:14px}
+footer li{list-style:none;margin-bottom:8px}footer a,footer .lk{color:rgba(255,255,255,.72);transition:color .2s}footer a:hover,footer .lk:hover{color:var(--leaf)}
+footer .logo{display:flex}
+footer .lk{background:none;border:0;font:inherit;cursor:pointer;padding:0;text-align:left}
+footer .fb{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:22px;border-top:1px solid rgba(255,255,255,.14);padding-bottom:70px}footer .fb a{color:var(--leaf)}
+dialog{border:0;border-radius:28px;max-width:min(640px,92vw);max-height:84vh;padding:0;background:var(--stone);color:var(--ink);box-shadow:0 40px 90px -20px rgba(0,0,0,.6);margin:auto}dialog::backdrop{background:rgba(20,33,26,.7)}
+dialog .dc{padding:clamp(24px,4vw,40px);overflow:auto;max-height:84vh}dialog h2{font-size:26px;color:var(--forest);margin-bottom:14px}dialog h3{font-size:17px;margin:18px 0 6px;color:var(--forest)}dialog p{color:var(--mut);font-size:15px}
+dialog .x{position:absolute;right:14px;top:14px;width:38px;height:38px;border-radius:50%;border:0;background:var(--lichen);color:var(--forest);font-size:22px;cursor:pointer}
+@media(max-width:980px){.where .wrap{grid-template-columns:1fr}footer .ft{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.fab{display:none}footer .ft{grid-template-columns:1fr}}
+.mcta{display:none}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s,transform .9s}.rv.in{opacity:1;transform:none}
+@media(max-width:980px){.grid4{grid-template-columns:1fr 1fr}.stage,.faq .wrap{grid-template-columns:1fr}}
+@media(max-width:760px){
+nav ul{position:fixed;inset:68px 0 auto 0;background:var(--stone);flex-direction:column;padding:24px;gap:18px;transform:translateY(-130%);transition:transform .4s;z-index:-1;box-shadow:0 20px 40px -20px rgba(0,0,0,.3)}nav ul.o{transform:none}
+#burger{display:block}.ncta{display:none}
+.hero{grid-template-columns:1fr;min-height:0}.hcopy{padding:96px 20px 28px;max-width:none}
+.hph{height:auto;min-height:0;aspect-ratio:3/4;margin-top:0}.hph .ph{inset:0 0 0 0;border-radius:42% 42% 0 0/20% 20% 0 0}
+.tag{left:14px;bottom:18px}
+.grid4{grid-template-columns:1fr}.st{grid-template-columns:1fr}.st:nth-child(even) .stp{order:0}
+.vine{grid-template-columns:34px 1fr;gap:12px}.vine svg{width:34px}.cols{grid-template-columns:1fr 1fr}.cols .col:nth-child(3){display:none}
+.mcta{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:60;justify-content:center}.mcta .btn{width:100%;justify-content:center;box-shadow:0 10px 30px -8px rgba(0,0,0,.45)}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body class="lock">
+<div id="intro"><svg viewBox="0 0 84 84"><path d="M42 78V40M42 40C42 24 30 14 14 14c0 16 10 26 28 26M42 52C42 38 52 30 68 30c0 14-10 22-26 22"/></svg><p>Yngrid Almeida · Paisagismo</p></div>
+
+<div id="bar"></div>
+<nav id="nav">
+<a class="logo" href="#top"><svg viewBox="0 0 24 24"><path d="M12 22V11M12 11C12 6 8 3 3 3c0 5 3 8 9 8M12 15c0-4 3-6 8-6 0 4-3 6-8 6"/></svg>Yngrid Almeida</a>
+<ul id="menu"><li><a href="#ambientes">Ambientes</a></li><li><a href="#servicos">Serviços</a></li><li><a href="#processo">Como funciona</a></li><li><a href="#faq">Dúvidas</a></li></ul>
+<a class="btn ncta" href="https://wa.me/5562996638152?text=Oi%20Yngrid%2C%20vi%20seu%20trabalho%20e%20quero%20um%20projeto%20de%20paisagismo." target="_blank" rel="noopener">Falar no WhatsApp</a>
+<button id="burger" aria-label="Menu"><i></i><i></i></button>
+</nav>
+
+<header class="hero" id="top">
+<canvas id="leaves"></canvas>
+<div class="hcopy">
+<h1>Seu jardim pronto para ser o lugar que você mais quer estar.</h1>
+<p>Projeto, plantio e escolha das plantas certas para o seu espaço, da fachada à sala. Eu cuido do desenho e você só aproveita o resultado.</p>
+<div class="hbtn"><a class="btn" href="https://wa.me/5562996638152?text=Oi%20Yngrid%2C%20quero%20agendar%20uma%20avalia%C3%A7%C3%A3o%20do%20meu%20espa%C3%A7o." target="_blank" rel="noopener">Agendar minha avaliação</a><a class="ghost" href="#ambientes">Ver trabalhos</a></div>
+</div>
+<div class="hph" id="hph"><div class="ph"><img src="img/f01.jpg" alt="Yngrid Almeida ao lado de uma oliveira plantada em um jardim"></div><div class="tag"><b>Oliveiras e jardins</b>de Goiânia para você</div></div>
+</header>
+
+<section class="mani"><div class="wrap"><p id="mf">Um bom jardim começa na conversa: como você usa o espaço, quanta luz ele recebe e quanto tempo você quer dedicar. Depois vem o desenho, a escolha de cada planta e o plantio com cuidado para que ele cresça bonito.</p></div></section>
+
+<section class="amb" id="ambientes"><div class="wrap">
+<div class="top"><h2>Cada espaço pede um tipo de verde.</h2>
+<div class="tabs" id="tabs"><button class="on">Oliveiras</button><button>Plantas internas</button><button>Projeto 3D</button><button>Empresas</button></div></div>
+<div class="stage"><div class="view" id="view"><img class="on" src="img/f05.jpg" alt="Oliveira plantada em jardim com seixos brancos"><img src="img/f09.jpg" alt="Oliveira em vaso na sala"><img src="img/f07.jpg" alt="Projeto 3D de jardim"><img src="img/f04.jpg" alt="Plantas em recepção de empresa"></div>
+<div class="info" id="info"><h3>Oliveiras que viram o centro da casa</h3><p>Plantio de árvores adultas na fachada e no jardim, com preparo do solo e acabamento para ela pegar bem e valorizar a entrada.</p><a class="btn" id="infoc" href="#" target="_blank" rel="noopener">Quero uma oliveira no meu jardim</a></div></div>
+</div></section>
+
+<section class="serv" id="servicos"><div class="wrap">
+<h2>O que posso fazer pelo seu espaço</h2>
+<div class="grid4">
+<div class="sv rv"><svg viewBox="0 0 64 64"><path d="M8 52h48M14 52V30l18-14 18 14v22M26 52V38h12v14"/><path d="M32 16V8"/></svg><h3>Projeto paisagístico</h3><p>Desenho do jardim pensado para o seu terreno, sua rotina e o orçamento que você tem.</p><a href="https://wa.me/5562996638152?text=Oi%20Yngrid%2C%20quero%20um%20projeto%20paisag%C3%ADstico." target="_blank" rel="noopener">Pedir projeto</a></div>
+<div class="sv rv"><svg viewBox="0 0 64 64"><path d="M32 58V28M32 28C32 16 24 10 12 10c0 12 7 18 20 18M32 40c0-9 6-14 18-14 0 9-6 14-18 14"/></svg><h3>Plantio e execução</h3><p>Oliveiras, árvores e canteiros plantados do jeito certo, para pegar e crescer saudáveis.</p><a href="https://wa.me/5562996638152?text=Oi%20Yngrid%2C%20quero%20or%C3%A7ar%20um%20plantio." target="_blank" rel="noopener">Orçar plantio</a></div>
+<div class="sv rv"><svg viewBox="0 0 64 64"><path d="M20 38h24l-3 18H23zM32 38V20M32 28c-8 0-12-5-12-12 8 0 12 4 12 12zM32 24c0-6 4-10 12-10 0 8-4 10-12 10z"/></svg><h3>Plantas para dentro de casa</h3><p>Escolha de espécies e vasos para sala, recepção e escritório, de acordo com a luz do local.</p><a href="https://wa.me/5562996638152?text=Oi%20Yngrid%2C%20quero%20plantas%20para%20o%20meu%20ambiente%20interno." target="_blank" rel="noopener">Quero plantas</a></div>
+<div class="sv rv"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="12"/><path d="M32 6v8M32 50v8M6 32h8M50 32h8M13 13l6 6M45 45l6 6M13 51l6-6M45 19l6-6"/></svg><h3>Visita e orientação</h3><p>Uma avaliação do espaço para você saber o que fazer primeiro e quanto custa antes de decidir.</p><a href="https://wa.me/5562996638152?text=Oi%20Yngrid%2C%20quero%20agendar%20uma%20visita." target="_blank" rel="noopener">Agendar visita</a></div>
+</div></div></section>
+
+<section class="proc" id="processo"><div class="wrap">
+<h2>Da conversa ao jardim crescendo</h2>
+<div class="vine" id="vine">
+<svg id="vsvg" preserveAspectRatio="none"><path class="ghost2" id="gp"/><path class="stem" id="sp"/></svg>
+<div class="steps">
+<div class="st"><div class="stp"><img src="img/f08.jpg" alt="" loading="lazy"></div><div><h3>Conversa e visita</h3><p>Você conta o que sonha e eu olho o espaço, a luz e o solo. Sem compromisso.</p></div></div>
+<div class="st"><div class="stp"><img src="img/f07.jpg" alt="" loading="lazy"></div><div><h3>Projeto em 3D</h3><p>Você vê o jardim desenhado antes de plantar uma única muda.</p></div></div>
+<div class="st"><div class="stp"><img src="img/f03.jpg" alt="" loading="lazy"></div><div><h3>Plantio</h3><p>As plantas chegam e são colocadas com preparo de solo e acabamento.</p></div></div>
+<div class="st"><div class="stp"><img src="img/f02.jpg" alt="" loading="lazy"></div><div><h3>Jardim pronto</h3><p>Você recebe o espaço bonito e as orientações para ele continuar assim.</p></div></div>
+</div></div></div></section>
+
+<section class="gal"><div class="wrap"><h2>Trabalhos que já cresceram</h2>
+<div class="cols" id="cols">
+<div class="col" data-s="-30"><img src="img/f01.jpg" alt="" loading="lazy"><img src="img/f06.jpg" alt="" loading="lazy"></div>
+<div class="col" data-s="40"><img src="img/f02.jpg" alt="" loading="lazy"><img src="img/f10.jpg" alt="" loading="lazy"></div>
+<div class="col" data-s="-20"><img src="img/f03.jpg" alt="" loading="lazy"><img src="img/f04.jpg" alt="" loading="lazy"></div>
+</div></div></section>
+
+<section class="prova"><div class="wrap"><h2>Trabalho de quem vive de plantas todos os dias.</h2><p>Mais de 50 fotos de projetos publicadas no Google, de oliveiras plantadas a ambientes internos. Chame no WhatsApp e veja os que mais combinam com o seu espaço.</p></div></section>
+
+<section class="faq" id="faq"><div class="wrap"><div><h2>Antes de me chamar</h2></div><div>
+<div class="q"><button aria-expanded="false">Preciso ter um projeto pronto?</button><div><p>Não. Você me conta o que tem e o que quer, e eu cuido do desenho. Se já tiver ideias, melhor ainda.</p></div></div>
+<div class="q"><button aria-expanded="false">Quanto custa?</button><div><p>Depende do tamanho e das plantas escolhidas. Chame no WhatsApp com fotos do espaço e eu passo uma ideia de valor.</p></div></div>
+<div class="q"><button aria-expanded="false">Atende só casas?</button><div><p>Também atendo empresas, recepções e ambientes internos, com plantas escolhidas para a luz de cada lugar.</p></div></div>
+<div class="q"><button aria-expanded="false">E se eu não tiver tempo para cuidar?</button><div><p>É justamente por isso que escolho plantas que combinam com a sua rotina. Você recebe as orientações certas para cada uma.</p></div></div>
+</div></div></section>
+
+<section class="where" id="onde"><div class="wrap"><div><h2>Vamos conversar sobre o seu espaço</h2><dl><div><dt>Endereço</dt><dd>Av. São Clemente<small>Goiânia, Goiás</small></dd></div><div><dt>WhatsApp e telefone</dt><dd><a href="https://wa.me/5562996638152?text=Oi%20Yngrid%2C%20quero%20agendar%20uma%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener">(62) 99663-8152</a></dd></div><div><dt>Horário</dt><dd>Atendimento com visita agendada<small>Combine o dia e o horário pelo WhatsApp</small></dd></div></dl><div class="bt"><a class="btn" href="https://wa.me/5562996638152?text=Oi%20Yngrid%2C%20quero%20agendar%20uma%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener"><svg class="wi" viewBox="0 0 24 24"><path d="M20.5 3.5A11.8 11.8 0 0 0 12 0 11.9 11.9 0 0 0 1.7 17.9L0 24l6.3-1.6A11.9 11.9 0 0 0 12 24a11.9 11.9 0 0 0 8.5-20.5zM12 21.9a9.9 9.9 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.9 9.9 0 1 1 12 21.9zm5.4-7.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.7.1a8 8 0 0 1-4-3.5c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.7 3.7 0 0 0-1.1 2.7 6.4 6.4 0 0 0 1.3 3.4 14.6 14.6 0 0 0 5.6 4.9c2.1.9 2.9 1 3.9.8a3.3 3.3 0 0 0 2.2-1.5 2.7 2.7 0 0 0 .2-1.5c-.1-.1-.3-.2-.6-.3z"/></svg>Chamar no WhatsApp</a><a class="btn dk" href="https://www.google.com/maps/search/?api=1&query=Yngrid+Almeida+Arquiteta+Paisagista+Av+S%C3%A3o+Clemente+Goi%C3%A2nia" target="_blank" rel="noopener">Abrir no Google Maps</a></div></div><div class="map"><iframe title="Mapa do escritório de Yngrid Almeida" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Yngrid+Almeida+Arquiteta+Paisagista,+Av.+S%C3%A3o+Clemente,+Goi%C3%A2nia&output=embed"></iframe></div></div></section>
+<section class="cta"><span class="orb" style="width:360px;height:360px;left:-80px;top:-60px"></span><span class="orb" style="width:280px;height:280px;right:-60px;bottom:-40px"></span>
+<div class="wrap"><h2>Me mande uma foto do seu espaço e eu te digo por onde começar.</h2><p>A conversa é pelo WhatsApp, sem compromisso.</p><a class="btn" href="https://wa.me/5562996638152?text=Oi%20Yngrid%2C%20segue%20uma%20foto%20do%20meu%20espa%C3%A7o%20para%20voc%C3%AA%20avaliar." target="_blank" rel="noopener">Agendar minha avaliação</a></div></section>
+
+<footer><div class="wrap"><div class="ft"><div><a class="logo" href="#top">Yngrid Almeida</a><p>Paisagismo e projetos de jardim para casas, varandas e empresas em Goiânia.</p></div><div><h4>Navegue</h4><ul><li><a href="#ambientes">Ambientes</a></li><li><a href="#servicos">Serviços</a></li><li><a href="#processo">Como funciona</a></li><li><a href="#faq">Dúvidas</a></li><li><a href="#onde">Localização</a></li></ul></div><div><h4>Informações</h4><ul><li><button class="lk" data-d="priv">Política de privacidade</button></li><li><button class="lk" data-d="termos">Termos de uso</button></li></ul></div><div><h4>Contato</h4><ul><li>Av. São Clemente<br>Goiânia, GO</li><li><a href="https://wa.me/5562996638152?text=Oi%20Yngrid%2C%20quero%20agendar%20uma%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener">WhatsApp (62) 99663-8152</a></li></ul></div></div><div class="fb"><span>© 2026 Yngrid Almeida, Paisagismo. Todos os direitos reservados.</span><span>Site por <a href="https://yrastudios.com.br" target="_blank" rel="noopener">YRA Studios</a></span></div></div></footer>
+<a class="fab" href="https://wa.me/5562996638152?text=Oi%20Yngrid%2C%20quero%20agendar%20uma%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener" aria-label="Chamar no WhatsApp"><svg class="wi" viewBox="0 0 24 24"><path d="M20.5 3.5A11.8 11.8 0 0 0 12 0 11.9 11.9 0 0 0 1.7 17.9L0 24l6.3-1.6A11.9 11.9 0 0 0 12 24a11.9 11.9 0 0 0 8.5-20.5zM12 21.9a9.9 9.9 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.9 9.9 0 1 1 12 21.9zm5.4-7.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.7.1a8 8 0 0 1-4-3.5c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.7 3.7 0 0 0-1.1 2.7 6.4 6.4 0 0 0 1.3 3.4 14.6 14.6 0 0 0 5.6 4.9c2.1.9 2.9 1 3.9.8a3.3 3.3 0 0 0 2.2-1.5 2.7 2.7 0 0 0 .2-1.5c-.1-.1-.3-.2-.6-.3z"/></svg></a>
+<dialog id="priv"><div class="dc"><button class="x" aria-label="Fechar" data-x>×</button><h2>Política de privacidade</h2><p>Este site apresenta o trabalho de Yngrid Almeida e leva você ao WhatsApp. Respeitamos a Lei Geral de Proteção de Dados (Lei 13.709/2018).</p><h3>Quais dados coletamos</h3><p>O site não tem formulários, não pede cadastro e não usa cookies de rastreamento ou publicidade. Só recebemos os dados que você mesmo envia ao conversar pelo WhatsApp.</p><h3>Como usamos</h3><p>Usamos essas informações apenas para responder sua mensagem, agendar e prestar o atendimento. Seus dados não são compartilhados com terceiros para fins de marketing.</p><h3>Serviços de terceiros</h3><p>O mapa é fornecido pelo Google e o chat pelo WhatsApp. Ao usá-los, valem as políticas dessas empresas.</p><h3>Seus direitos</h3><p>Você pode pedir acesso, correção ou exclusão dos seus dados a qualquer momento, pelo WhatsApp (62) 99663-8152.</p></div></dialog>
+<dialog id="termos"><div class="dc"><button class="x" aria-label="Fechar" data-x>×</button><h2>Termos de uso</h2><p>Ao navegar neste site você concorda com as condições abaixo.</p><h3>Conteúdo informativo</h3><p>Os textos e as imagens são ilustrativos. Cada projeto de paisagismo é definido após a visita e a avaliação do espaço.</p><h3>Agendamentos</h3><p>Visitas, orçamentos e prazos são combinados pelo WhatsApp.</p><h3>Conteúdo</h3><p>Textos, imagens e identidade visual pertencem a Yngrid Almeida e não podem ser copiados sem autorização.</p></div></dialog>
+<div class="mcta"><a class="btn" href="https://wa.me/5562996638152?text=Oi%20Yngrid%2C%20quero%20agendar%20uma%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener">Agendar minha avaliação</a></div>
+
+<script src="js/gsap.min.js"></script>
+<script>
+(function(){
+const $=(s,c=document)=>c.querySelector(s),$$=(s,c=document)=>[...c.querySelectorAll(s)];
+const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const WA='https://wa.me/5562996638152?text=';
+setTimeout(()=>{$('#intro').classList.add('out');document.body.classList.remove('lock');$('#hph').classList.add('in');
+ if(window.gsap&&!reduce)gsap.from('.hcopy h1,.hcopy p,.hbtn',{y:30,opacity:0,duration:1,stagger:.15,delay:.4,ease:'power3.out'})},1900);
+setTimeout(()=>document.body.classList.remove('lock'),4000);
+const nav=$('#nav');addEventListener('scroll',()=>nav.classList.toggle('s',scrollY>40),{passive:true});
+$('#burger').onclick=function(){this.classList.toggle('o');$('#menu').classList.toggle('o')};$$('#menu a').forEach(a=>a.onclick=()=>{$('#burger').classList.remove('o');$('#menu').classList.remove('o')});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.2});
+$$('.rv,.sv').forEach(el=>io.observe(el));
+/* barra, dialogs */
+const bar=$('#bar');addEventListener('scroll',()=>{bar.style.transform='scaleX('+(scrollY/(document.documentElement.scrollHeight-innerHeight||1))+')'},{passive:true});
+$$('[data-d]').forEach(b=>b.onclick=()=>document.getElementById(b.dataset.d).showModal());
+$$('dialog').forEach(d=>d.addEventListener('click',e=>{if(e.target===d||e.target.hasAttribute('data-x'))d.close()}));
+/* manifesto */
+const mf=$('#mf');mf.innerHTML=mf.textContent.trim().split(/\s+/).map(w=>`<span class="w">${w}</span>`).join(' ');const ws=$$('#mf .w');
+const upd=()=>{const r=mf.getBoundingClientRect();const p=Math.min(1,Math.max(0,(innerHeight*.85-r.top)/(r.height+innerHeight*.25)));const k=Math.round(p*ws.length);ws.forEach((w,i)=>w.classList.toggle('on',i<k))};addEventListener('scroll',upd,{passive:true});upd();
+/* ambientes */
+const data=[
+['Oliveiras que viram o centro da casa','Plantio de árvores adultas na fachada e no jardim, com preparo do solo e acabamento para ela pegar bem e valorizar a entrada.','Quero uma oliveira no meu jardim','Oi Yngrid, quero uma oliveira no meu jardim.'],
+['Verde dentro de casa','Plantas e vasos escolhidos para a luz da sua sala, varanda ou escritório, para o ambiente ficar vivo sem dar trabalho.','Quero plantas para minha casa','Oi Yngrid, quero plantas para o meu ambiente interno.'],
+['Veja antes de plantar','Seu jardim desenhado em 3D, para você aprovar cada canteiro e cada planta antes da obra começar.','Quero ver meu jardim em 3D','Oi Yngrid, quero um projeto de jardim em 3D.'],
+['Recepções e escritórios','Plantas que deixam a empresa mais acolhedora e causam boa impressão em quem chega.','Quero para minha empresa','Oi Yngrid, quero paisagismo para minha empresa.']];
+const imgs=$$('#view img'),tb=$$('#tabs button');let cur=0;
+tb.forEach((b,i)=>b.onclick=()=>{if(i===cur)return;imgs.forEach(m=>m.classList.remove('prev'));imgs[cur].classList.remove('on');imgs[cur].classList.add('prev');imgs[i].classList.add('on');tb[cur].classList.remove('on');b.classList.add('on');cur=i;
+ const d=data[i],inf=$('#info');inf.style.opacity=0;setTimeout(()=>{$('h3',inf).textContent=d[0];$('p',inf).textContent=d[1];$('#infoc').textContent=d[2];$('#infoc').href=WA+encodeURIComponent(d[3]);inf.style.opacity=1},250);
+ $('#view').style.borderRadius=['36% 64% 40% 60%/50% 40% 60% 50%','60% 40% 55% 45%/45% 55% 45% 55%','40% 60% 60% 40%/60% 40% 60% 40%','55% 45% 35% 65%/40% 60% 40% 60%'][i]});
+$('#info').style.transition='opacity .25s';$('#infoc').href=WA+encodeURIComponent(data[0][3]);
+/* trepadeira */
+const vine=$('#vine'),sp=$('#sp'),gp=$('#gp'),vs=$('#vsvg'),sts=$$('.st');let L=0;
+const build=()=>{const h=vine.offsetHeight,w=vs.clientWidth;vs.setAttribute('viewBox',`0 0 ${w} ${h}`);let d=`M${w/2} 0`;const n=Math.max(4,Math.round(h/220));for(let i=1;i<=n;i++){const y=h*i/n,y0=h*(i-1)/n;d+=` C${i%2?w*.1:w*.9} ${y0+(y-y0)*.35} ${i%2?w*.9:w*.1} ${y0+(y-y0)*.65} ${w/2} ${y}`}
+ sp.setAttribute('d',d);gp.setAttribute('d',d);L=sp.getTotalLength();sp.style.strokeDasharray=L;prog()};
+const prog=()=>{const r=vine.getBoundingClientRect();const p=Math.min(1,Math.max(0,(innerHeight*.6-r.top)/r.height));sp.style.strokeDashoffset=L*(1-p);sts.forEach(s=>{const b=s.getBoundingClientRect();s.classList.toggle('on',b.top<innerHeight*.72)})};
+build();addEventListener('resize',build);addEventListener('scroll',prog,{passive:true});addEventListener('load',build);
+/* galeria parallax */
+const cols=$$('.col');const par=()=>{if(reduce||innerWidth<760)return;const r=$('#cols').getBoundingClientRect();const p=(innerHeight/2-(r.top+r.height/2))/innerHeight;cols.forEach(c=>c.style.transform=`translateY(${p*c.dataset.s*2}px)`)};addEventListener('scroll',par,{passive:true});par();
+/* faq */
+$$('.q button').forEach(b=>b.onclick=()=>{const q=b.parentElement,was=q.classList.contains('open');$$('.q').forEach(x=>{x.classList.remove('open');x.firstElementChild.setAttribute('aria-expanded','false')});if(!was){q.classList.add('open');b.setAttribute('aria-expanded','true')}});
+/* folhas */
+const c=$('#leaves'),x=c.getContext('2d');let W,H,mx=-999,my=-999;const N=innerWidth<760?10:22;let lv=[];
+const size=()=>{const r=c.getBoundingClientRect();W=c.width=r.width;H=c.height=r.height};size();addEventListener('resize',size);
+const mk=()=>({x:Math.random()*W,y:Math.random()*H,s:8+Math.random()*14,a:Math.random()*6.28,v:.25+Math.random()*.5,w:Math.random()*6.28,c:Math.random()>.5?'#34513a':'#b9d15a'});
+for(let i=0;i<N;i++)lv.push(mk());
+c.parentElement.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top});
+const leaf=l=>{x.save();x.translate(l.x,l.y);x.rotate(l.a);x.fillStyle=l.c;x.globalAlpha=.55;x.beginPath();x.moveTo(0,-l.s);x.quadraticCurveTo(l.s*.8,0,0,l.s);x.quadraticCurveTo(-l.s*.8,0,0,-l.s);x.fill();x.restore()};
+const tick=()=>{x.clearRect(0,0,W,H);lv.forEach(l=>{l.w+=.01;l.y+=l.v;l.x+=Math.sin(l.w)*.5;l.a+=.01;const dx=l.x-mx,dy=l.y-my,d=Math.hypot(dx,dy);if(d<110){l.x+=dx/d*3;l.y+=dy/d*3}if(l.y>H+20){l.y=-20;l.x=Math.random()*W}leaf(l)});if(!document.hidden)requestAnimationFrame(tick)};
+if(reduce){lv.forEach(leaf)}else{tick();document.addEventListener('visibilitychange',()=>{if(!document.hidden)tick()})}
+})();
+</script>
+</body>
+</html>
